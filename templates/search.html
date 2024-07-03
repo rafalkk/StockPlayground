@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Search
+{% endblock %}
+
+{% block main %}
+<form action="/search" method="post">
+    <div class="text-center mb-4">
+        <h5>Symbol search</h5>
+        <p>Search for best-matching symbols based on your query.</p>
+    </div>
+    <div class="mb-3">
+        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="symbol" placeholder="you can input anything" type="text">
+    </div>
+    <button class="btn btn-primary" type="submit">Search</button>
+</form>
+{% endblock %}

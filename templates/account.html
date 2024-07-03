@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Account
+{% endblock %}
+
+{% block main %}
+<p>Hello <b>{{ user[0].username }}</b></p>
+
+
+
+<nav>
+    <div class="nav nav-tabs justify-content-center" id="nav-tab" role="tablist">
+      <button class="nav-link active" id="nav-pass-tab" data-bs-toggle="tab" data-bs-target="#nav-pass" type="button" role="tab" aria-controls="nav-pass" aria-selected="true">Password change</button>
+      <button class="nav-link" id="nav-credit-tab" data-bs-toggle="tab" data-bs-target="#nav-credit" type="button" role="tab" aria-controls="nav-credit" aria-selected="false">Deposit</button>
+    </div>
+  </nav>
+  <div class="tab-content" id="nav-tabContent">
+    <div class="tab-pane fade show active" id="nav-pass" role="tabpanel" aria-labelledby="nav-pass-tab">
+
+        <br>
+        <form action="/password_change" method="post">
+            <div class="mb-3">
+                <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="password" placeholder="Password" type="password">
+            </div>
+            <div class="mb-3">
+                <input class="form-control mx-auto w-auto" name="newpassword" placeholder="New password" type="password">
+            </div>
+            <div class="mb-3">
+                <input class="form-control mx-auto w-auto" name="confirmation" placeholder="New password (again)" type="password">
+            </div>
+            <button class="btn btn-primary" type="submit">Change password</button>
+        </form>
+
+    </div>
+    <div class="tab-pane fade" id="nav-credit" role="tabpanel" aria-labelledby="nav-credit-tab">
+
+        <br>
+        <form action="/cash" method="post">
+            <div class="mb-3">
+                <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="cash" placeholder="$" type="number">
+            </div>
+            <button class="btn btn-primary" type="submit">Add Cash</button>
+        </form>
+
+    </div>
+
+  </div>
+
+{% endblock %}

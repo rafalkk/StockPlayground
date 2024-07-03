@@ -1,0 +1,20 @@
+services:
+
+  nginx:
+    build: ./nginx
+    ports:
+      - "80:80"
+    networks:
+    - webapp-network
+   
+  backend:
+    build: .
+    environment:
+    - API_KEY=
+    - HCAPTCHA_SECRET_KEY=
+    - HCAPTCHA_SITE_KEY=
+    networks:
+    - webapp-network
+
+networks:
+  webapp-network:

@@ -1,0 +1,6 @@
+sqlalchemy
+Flask
+Flask-Session
+flask-sqlalchemy
+requests
+gunicorn

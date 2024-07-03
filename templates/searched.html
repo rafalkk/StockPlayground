@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Searched
+{% endblock %}
+
+{% block main %}
+<table class="table table-striped">
+     <thead>
+        <tr>
+            <th class="text-start">Symbol</th>
+            <th class="text-start">Name</th>
+            <th class="text-end">Type</th>
+      </tr>
+     </thead>
+    <tbody>
+{% for item in search_result %}
+      <tr>
+            <td class="text-start">{{ item.symbol }}</td>
+            <td class="text-start">{{ item.description }}</td>
+            <td class="text-end">{{ item.type }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

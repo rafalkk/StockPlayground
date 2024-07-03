@@ -1,0 +1,39 @@
+nav .navbar-brand
+{
+    font-size: xx-large;
+}
+
+nav .navbar-brand .purp
+{
+    color: #4f46e5;
+}
+
+.error-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    border: 2px dashed black;
+}
+.image {
+    width: 100%;
+    height: auto;
+}
+.top-text {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2.5em;
+    color: #d9534f;
+    text-align: center;
+}
+.bottom-text {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2.0em;
+    color: #333;
+    text-align: center;
+}

@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Error
+{% endblock %}
+
+{% block main %}
+<div class="error-container">
+    <img src="{{ url_for('static', filename='ppp.jpg') }}" class="image">
+    <div class="top-text">{{ top }}</div>
+    <div class="bottom-text">{{ bottom }}</div>
+</div>
+{% endblock %}

@@ -1,0 +1,24 @@
+# For local testing only
+/.local_only
+
+
+# Flask Sessions filesystem?
+flask_session/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Database files
+*.db
+test.py

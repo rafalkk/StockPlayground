@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th class="text-start">Symbol</th>
+            <th class="text-start">Name</th>
+            <th class="text-end">Shares</th>
+            <th class="text-end">Current price</th>
+            <th class="text-end">Value</th>
+            <th class="text-end">Invested</th>
+            <th class="text-end">Net Profit</th>
+            <th class="text-end">%_Profit</th>
+        </tr>
+    </thead>
+   <tbody>
+{% for entry in index %}
+        <tr>
+            <td class="text-start">{{ entry.symbol }}</td>
+            <td class="text-start">{{ entry.name }}</td>
+            <td class="text-end">{{ entry.shares }}</td>
+            <td class="text-end">{{ entry.price | usd }}</td>
+            <td class="text-end">{{ entry.value | usd }}</td>
+            <td class="text-end">{{ entry.invested | usd }}</td>
+            <td class="text-end">{{ entry.net_profit | usd }}</td>
+            <td class="text-end">{{ entry.percent_profit | percent }}</td>
+        </tr>
+{% endfor %}
+
+    </tbody>
+    <tfoot>
+        <tr>
+            <td class="border-0 fw-bold text-end" colspan="4">All stock value</td>
+            <td class="border-0 w-bold text-end">{{ total_stock_value | usd }}</td>
+        </tr>
+        <tr>
+            <td class="border-0 fw-bold text-end" colspan="4">Cash</td>
+            <td class="border-0 text-end">{{ cash | usd }}</td>
+        </tr>
+        <tr>
+            <td class="border-0 fw-bold text-end" colspan="4">TOTAL</td>
+            <td class="border-0 w-bold text-end">{{ total | usd }}</td>
+        </tr>
+    </tfoot>
+</table>
+
+{% endblock %}
