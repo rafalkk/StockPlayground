@@ -104,14 +104,7 @@ def index():
         symbol = row["symbol"]
         shares = row["shares"]
 
-        # Check current price using api request
-        quote = lookup(symbol)
-
-        # Current share price and value of all shares
-        current_price = quote["price"]
-        value = shares * current_price
-
-        # Get total cost of purchases and number of buyd shares for given symbol
+        # Get total cost of purchases and number of buyed shares for given symbol
         purchased = next(item for item in buy_transactions
                          if item["symbol"] == symbol)["purchased"]
         buyed_shares = next(item for item in buy_transactions
@@ -120,6 +113,30 @@ def index():
         average_cost_per_share = purchased / buyed_shares
 
         total_investment = average_cost_per_share * shares
+
+        # Check current price using api request
+        quote = lookup(symbol)
+
+        if quote is None:
+        # If lookup fails, use this values in dictionary:
+            entry = {
+                "name": name,
+                "symbol": f'{symbol} - currently unavailable ',
+                "shares": shares,
+                "price": 0,
+                "value": 0,
+                "invested": total_investment,
+                "net_profit": 0,
+                "percent_profit": 0
+            }
+
+            index.append(entry)
+            # Skip the rest of the regular loop
+            continue
+
+        # Current share price and value of all shares
+        current_price = quote["price"]
+        value = shares * current_price
 
         net_profit = value - total_investment
 
