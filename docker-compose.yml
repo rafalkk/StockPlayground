@@ -1,20 +1,26 @@
+version: "3.8"
+
 services:
 
   nginx:
-    build: ./nginx
+    image: nginx:1.27-bookworm
     ports:
       - "80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - backend
     networks:
-    - webapp-network
+      - webapp-network
    
   backend:
     build: .
     environment:
-    - API_KEY=
-    - HCAPTCHA_SECRET_KEY=
-    - HCAPTCHA_SITE_KEY=
+      - API_KEY=
+      - HCAPTCHA_SECRET_KEY=
+      - HCAPTCHA_SITE_KEY=
     networks:
-    - webapp-network
+      - webapp-network
 
 networks:
   webapp-network:
